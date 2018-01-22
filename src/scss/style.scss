@@ -1,0 +1,23 @@
+@import "reset";
+@import "settings";
+@import "grid";
+
+body {
+  background: url("../images/seamless.jpg") repeat;
+}
+
+.content {
+  background: deepskyblue;
+  height: 100vh;
+  div {
+    background: hotpink;
+    height: 100vh;
+  }
+  > div.first {
+    @include grid(1, 3);
+  }
+  > div.second {
+    @include grid(3, 13);
+  }
+}
+

@@ -1,0 +1,105 @@
+// ===================================================================
+// The variables
+// ===================================================================
+
+// Breakpoint settings
+
+$s-min: 320px;
+$m-min: 448px;
+$l-min: 768px;
+$xl-min: 1024px;
+$xxl-min: 1366px;
+
+$s-max: $m-min - 1;
+$m-max: $l-min - 1;
+$l-max: $xl-min - 1;
+$xl-max: $xxl-min - 1;
+
+// Margins and Gutters
+
+$s-margin: 11px;
+$m-margin: 8px;
+$l-margin: 18px;
+$xl-margin: 27px;
+$xxl-margin: 14px;
+
+$s-gutter: 8px;
+$m-gutter: 16px;
+$l-gutter: 20px;
+$xl-gutter: 32px;
+$xxl-gutter: 28px;
+
+// content
+
+$max-content-width: 1412px;
+
+// ===================================================================
+// The mixins
+// ===================================================================
+
+// Grid Mixins
+
+@mixin grid($gridstart, $gridend) {
+  grid-column-start: $gridstart;
+  grid-column-end: $gridend;
+}
+
+// ===================================================================
+// Content Settings
+// ===================================================================
+
+.content {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  max-width: $max-content-width;
+}
+
+// ===================================================================
+// Breakpoints
+// ===================================================================
+
+// Small devices - Mobile portrait
+
+@media (min-width: #{$s-min}) and (max-width: #{$s-max}) {
+  .content {
+    padding: 0 $s-margin;
+    grid-column-gap: $s-gutter;
+  }
+}
+
+// Medium devices - Tablets portrait, mobile landscape
+
+@media (min-width: #{$m-min}) and (max-width: #{$m-max}) {
+  .content {
+    padding: 0 $m-margin;
+    grid-column-gap: $m-gutter;
+  }
+}
+
+// Large devices - Tablet landscape, laptops
+
+@media (min-width: #{$l-min}) and (max-width: #{$l-max}) {
+  .content {
+    padding: 0 $l-margin;
+    grid-column-gap: $l-gutter;
+  }
+}
+
+// Extra large devices - Full hd monitor
+
+@media (min-width: #{$xl-min}) and (max-width: #{$xl-max}) {
+  .content {
+    padding: 0 $xl-margin;
+    grid-column-gap: $xl-gutter;
+  }
+}
+
+// Extra Extra large devices - Smart tv
+
+@media (min-width: #{$xxl-min}) {
+  .content {
+    padding: 0 $xxl-margin;
+    grid-column-gap: $xxl-gutter;
+  }
+}
