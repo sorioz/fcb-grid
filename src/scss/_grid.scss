@@ -1,5 +1,5 @@
 // ===================================================================
-// The variables
+// The Variables
 // ===================================================================
 
 // Breakpoint settings
@@ -34,7 +34,7 @@ $xxl-gutter: 28px;
 $max-content-width: 1412px;
 
 // ===================================================================
-// The mixins
+// The Mixins
 // ===================================================================
 
 // Grid Mixins
@@ -45,11 +45,23 @@ $max-content-width: 1412px;
     float: left;
     width: calc(#{$percent} - #{$s-gutter});
     @supports (display: grid) {
-      width: auto;
-      float: none;
+      width: auto !important;
+      float: none !important;
       grid-column-start: $gridstart;
       grid-column-end: $gridend;
     }
+  }
+  @media (min-width: #{$m-min}) {
+    width: calc(#{$percent} - #{$m-gutter});
+  }
+  @media (min-width: #{$l-min}) {
+    width: calc(#{$percent} - #{$l-gutter});
+  }
+  @media (min-width: #{$xl-min}) {
+    width: calc(#{$percent} - #{$xl-gutter});
+  }
+  @media (min-width: #{$xxl-min}) {
+    width: calc(#{$percent} - #{$xxl-gutter});
   }
 }
 
@@ -59,11 +71,20 @@ $max-content-width: 1412px;
     float: left;
     width: calc(#{$percent} - #{$m-gutter});
     @supports (display: grid) {
-      width: auto;
-      float: none;
+      width: auto !important;
+      float: none !important;
       grid-column-start: $gridstart;
       grid-column-end: $gridend;
     }
+  }
+  @media (min-width: #{$l-min}) {
+    width: calc(#{$percent} - #{$l-gutter});
+  }
+  @media (min-width: #{$xl-min}) {
+    width: calc(#{$percent} - #{$xl-gutter});
+  }
+  @media (min-width: #{$xxl-min}) {
+    width: calc(#{$percent} - #{$xxl-gutter});
   }
 }
 
@@ -73,11 +94,17 @@ $max-content-width: 1412px;
     float: left;
     width: calc(#{$percent} - #{$l-gutter});
     @supports (display: grid) {
-      width: auto;
-      float: none;
+      width: auto !important;
+      float: none !important;
       grid-column-start: $gridstart;
       grid-column-end: $gridend;
     }
+  }
+  @media (min-width: #{$xl-min}) {
+    width: calc(#{$percent} - #{$xl-gutter});
+  }
+  @media (min-width: #{$xxl-min}) {
+    width: calc(#{$percent} - #{$xxl-gutter});
   }
 }
 
@@ -87,11 +114,14 @@ $max-content-width: 1412px;
     float: left;
     width: calc(#{$percent} - #{$xl-gutter});
     @supports (display: grid) {
-      width: auto;
-      float: none;
+      width: auto !important;
+      float: none !important;
       grid-column-start: $gridstart;
       grid-column-end: $gridend;
     }
+  }
+  @media (min-width: #{$xxl-min}) {
+    width: calc(#{$percent} - #{$xxl-gutter});
   }
 }
 
@@ -101,8 +131,8 @@ $max-content-width: 1412px;
     float: left;
     width: calc(#{$percent} - #{$xxl-gutter});
     @supports (display: grid) {
-      width: auto;
-      float: none;
+      width: auto !important;
+      float: none !important;
       grid-column-start: $gridstart;
       grid-column-end: $gridend;
     }
@@ -134,7 +164,7 @@ $max-content-width: 1412px;
 }
 
 // ===================================================================
-// Breakpoints
+// The Breakpoints
 // ===================================================================
 
 // Small devices - Mobile portrait
@@ -215,7 +245,7 @@ $max-content-width: 1412px;
         margin: 0 $xl-gutter/2;
       }
       @supports (display: grid) {
-        grid-column-gap: $ccxl-gutter;
+        grid-column-gap: $xl-gutter;
         margin: 0;
         > div {
           margin: 0;

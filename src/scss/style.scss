@@ -17,12 +17,15 @@ body {
     height: 100vh;
   }
   div.first {
+    @include grid-s(1, 7);
     @include grid-l(1, 5);
   }
   div.second {
+    @include grid-s(7, 13);
     @include grid-l(5, 9);
   }
   div.third {
+    @include grid-s(1, 7);
     @include grid-l(9, 13);
   }
 }
