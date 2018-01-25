@@ -39,9 +39,74 @@ $max-content-width: 1412px;
 
 // Grid Mixins
 
-@mixin grid($gridstart, $gridend) {
-  grid-column-start: $gridstart;
-  grid-column-end: $gridend;
+@mixin grid-s($gridstart, $gridend) {
+  $percent: (($gridend - $gridstart) / 12) * 100%;
+  @media (min-width: #{$s-min}) {
+    float: left;
+    width: calc(#{$percent} - #{$s-gutter});
+    @supports (display: grid) {
+      width: auto;
+      float: none;
+      grid-column-start: $gridstart;
+      grid-column-end: $gridend;
+    }
+  }
+}
+
+@mixin grid-m($gridstart, $gridend) {
+  $percent: (($gridend - $gridstart) / 12) * 100%;
+  @media (min-width: #{$m-min}) {
+    float: left;
+    width: calc(#{$percent} - #{$m-gutter});
+    @supports (display: grid) {
+      width: auto;
+      float: none;
+      grid-column-start: $gridstart;
+      grid-column-end: $gridend;
+    }
+  }
+}
+
+@mixin grid-l($gridstart, $gridend) {
+  $percent: (($gridend - $gridstart) / 12) * 100%;
+  @media (min-width: #{$l-min}) {
+    float: left;
+    width: calc(#{$percent} - #{$l-gutter});
+    @supports (display: grid) {
+      width: auto;
+      float: none;
+      grid-column-start: $gridstart;
+      grid-column-end: $gridend;
+    }
+  }
+}
+
+@mixin grid-xl($gridstart, $gridend) {
+  $percent: (($gridend - $gridstart) / 12) * 100%;
+  @media (min-width: #{$xl-min}) {
+    float: left;
+    width: calc(#{$percent} - #{$xl-gutter});
+    @supports (display: grid) {
+      width: auto;
+      float: none;
+      grid-column-start: $gridstart;
+      grid-column-end: $gridend;
+    }
+  }
+}
+
+@mixin grid-xxl($gridstart, $gridend) {
+  $percent: (($gridend - $gridstart) / 12) * 100%;
+  @media (min-width: #{$xxl-min}) {
+    float: left;
+    width: calc(#{$percent} - #{$xxl-gutter});
+    @supports (display: grid) {
+      width: auto;
+      float: none;
+      grid-column-start: $gridstart;
+      grid-column-end: $gridend;
+    }
+  }
 }
 
 // ===================================================================
@@ -50,9 +115,22 @@ $max-content-width: 1412px;
 
 .content {
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   max-width: $max-content-width;
+  .pool {
+    &:after {
+      display: block;
+      content: '';
+      clear: both;
+    }
+    @supports (display: grid) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      > div {
+        grid-column-start: 1;
+        grid-column-end: 13;
+      }
+    }
+  }
 }
 
 // ===================================================================
@@ -64,7 +142,20 @@ $max-content-width: 1412px;
 @media (min-width: #{$s-min}) and (max-width: #{$s-max}) {
   .content {
     padding: 0 $s-margin;
-    grid-column-gap: $s-gutter;
+    .pool {
+      margin-left: -($s-gutter/2);
+      margin-right: -($s-gutter/2);
+      > div {
+        margin: 0 $s-gutter/2;
+      }
+      @supports (display: grid) {
+        grid-column-gap: $s-gutter;
+        margin: 0;
+        > div {
+          margin: 0;
+        }
+      }
+    }
   }
 }
 
@@ -73,7 +164,20 @@ $max-content-width: 1412px;
 @media (min-width: #{$m-min}) and (max-width: #{$m-max}) {
   .content {
     padding: 0 $m-margin;
-    grid-column-gap: $m-gutter;
+    .pool {
+      margin-left: -($m-gutter/2);
+      margin-right: -($m-gutter/2);
+      > div {
+        margin: 0 $m-gutter/2;
+      }
+      @supports (display: grid) {
+        grid-column-gap: $m-gutter;
+        margin: 0;
+        > div {
+          margin: 0;
+        }
+      }
+    }
   }
 }
 
@@ -82,7 +186,20 @@ $max-content-width: 1412px;
 @media (min-width: #{$l-min}) and (max-width: #{$l-max}) {
   .content {
     padding: 0 $l-margin;
-    grid-column-gap: $l-gutter;
+    .pool {
+      margin-left: -($l-gutter/2);
+      margin-right: -($l-gutter/2);
+      > div {
+        margin: 0 $l-gutter/2;
+      }
+      @supports (display: grid) {
+        grid-column-gap: $l-gutter;
+        margin: 0;
+        > div {
+          margin: 0;
+        }
+      }
+    }
   }
 }
 
@@ -91,7 +208,20 @@ $max-content-width: 1412px;
 @media (min-width: #{$xl-min}) and (max-width: #{$xl-max}) {
   .content {
     padding: 0 $xl-margin;
-    grid-column-gap: $xl-gutter;
+    .pool {
+      margin-left: -($xl-gutter/2);
+      margin-right: -($xl-gutter/2);
+      > div {
+        margin: 0 $xl-gutter/2;
+      }
+      @supports (display: grid) {
+        grid-column-gap: $ccxl-gutter;
+        margin: 0;
+        > div {
+          margin: 0;
+        }
+      }
+    }
   }
 }
 
@@ -100,6 +230,19 @@ $max-content-width: 1412px;
 @media (min-width: #{$xxl-min}) {
   .content {
     padding: 0 $xxl-margin;
-    grid-column-gap: $xxl-gutter;
+    .pool {
+      margin-left: -($xxl-gutter/2);
+      margin-right: -($xxl-gutter/2);
+      > div {
+        margin: 0 $xxl-gutter/2;
+      }
+      @supports (display: grid) {
+        grid-column-gap: $xxl-gutter;
+        margin: 0;
+        > div {
+          margin: 0;
+        }
+      }
+    }
   }
 }

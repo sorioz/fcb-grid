@@ -9,15 +9,21 @@ body {
 .content {
   background: deepskyblue;
   height: 100vh;
-  div {
+  .pool {
+    background: orange;
+  }
+  .pool div {
     background: hotpink;
     height: 100vh;
   }
-  > div.first {
-    @include grid(1, 3);
+  div.first {
+    @include grid-l(1, 5);
   }
-  > div.second {
-    @include grid(3, 13);
+  div.second {
+    @include grid-l(5, 9);
+  }
+  div.third {
+    @include grid-l(9, 13);
   }
 }
 
